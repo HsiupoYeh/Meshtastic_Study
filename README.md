@@ -20,4 +20,4 @@
     + HTIT-WB32C (V3) -ESP32 LoRa (WiFi LoRa 32)完整模組(已集成外殼與天線）
   + 特色：MCU用ESP32，同時有WIFI+藍芽。好像需要WIFI都只有這顆MCU。使用SX1262。
   + 優點：便宜、台灣有官網可購買。
-  + 缺點：中國產品。使用的TypeC要小心，請避免使用TypeCtoC的線。
+  + 缺點：中國產品。使用的TypeC要小心，請避免使用TypeCtoC的線，在電池充電的時候可能會出現問題。
