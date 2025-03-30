@@ -22,6 +22,21 @@
   + 優點：便宜、台灣有官網可購買。天線都裝好了。
   + 缺點：中國產品。使用的TypeC要小心，請避免使用TypeCtoC的線，在電池充電的時候可能會出現問題。
 
-### 步驟
-+ 1. 燒錄
+### 燒錄
++ 目前只練習使用官方開發功能的韌體，所以依照官方的指示進行燒錄。
++ 需求：
+  + 要有**網路**。
+  + 要有**CP2102**的驅動。通常Win10以後有內建，沒有的話自己去找。
+  + 使用 **Edge (Microsoft Edge)** 或 Chrome (Google Chrome) 。這兩個才支援一些序列埠API。
++ 步驟：
+  + 先用USB連接**Heltec V3**與電腦。用裝置管理員確認有找到新增一個CP2102的COM裝置，並記得他的COM編號。
+  + 使用 **Edge** 前往燒錄網站：https://flasher.meshtastic.org/
+  + 依照網頁指示先`選擇裝置(Select Target Device)`為 **Heltec V3**
+  + 再選擇`韌體版本(Select Firmware Version)`，目前(2025-03-30)為：**2.5.20.4c97351**
+  + 再按下`燒錄(Flash)`。出現更新版本細節之提示，按下`Continue`表示同意。接著按照提示要設定:
+    + (1) `確認裝置已經用USB連接Ensure device is plugged in via USB`。如果板子有需要，請手動按住燒錄鈕。不過Heltec V3不需要。
+    + (2) `Choose baud rate選擇鮑率`。使用預設的115200就可以。
+    + (3) `Flash firmware燒錄韌體`。請手動打開**Full Erase and Install**，如果沒有空間問題，也打開**Bundle Web UI**。接著就可以按下`燒錄(Erase Flash and Install)`。
+      > 對於某些確定自己不需要ESP32架設一個區域網路的Web用戶端，可以不要打開**Bundle Web UI**來節省空間。
+    + 如
 + 2. 設定區域為台灣。不設定區域，則LED螢幕會提示我進行設定，否則無法讓其他Lora通訊功能開始運作。設定了會自動決定台灣的頻段，官方已經查好台灣的法規。
