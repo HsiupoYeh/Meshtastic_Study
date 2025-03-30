@@ -13,3 +13,9 @@
 ### Meshtastic官方網站
 + 官方網站： https://meshtastic.org/
 + GitHub 頁面： https://github.com/meshtastic
+
+### 選擇硬體
++ 中國公司Heltec Automation設計的HELTEC LoRa V3。
+  + 特色：MCU用ESP32，同時有WIFI+藍芽。好像需要WIFI都只有這顆MCU。
+  + 優點：便宜、台灣有官網可購買。
+  + 缺點：中國產品，使用較舊的SX1276，而非性能更好的SX126x。SX1276製程舊耗電兇成本高，產品保留用於發射比較強的功率，理論上使用距離比較遠。 
