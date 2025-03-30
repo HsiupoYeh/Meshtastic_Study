@@ -36,7 +36,9 @@
   + 再按下`燒錄(Flash)`。出現更新版本細節之提示，按下`Continue`表示同意。接著按照提示要設定:
     + (1) `確認裝置已經用USB連接Ensure device is plugged in via USB`。如果板子有需要，請手動按住燒錄鈕。不過Heltec V3不需要。
     + (2) `Choose baud rate選擇鮑率`。使用預設的115200就可以。
-    + (3) `Flash firmware燒錄韌體`。請手動打開**Full Erase and Install**，如果沒有空間問題，也打開**Bundle Web UI**。接著就可以按下`燒錄(Erase Flash and Install)`。
+    + (3) `Flash firmware燒錄韌體`。
+      + 請手動打開**Full Erase and Install**，如果沒有空間問題，也打開**Bundle Web UI**。
+      + 接著就可以按下`燒錄(Erase Flash and Install)`。跳出提示框讓你選擇COM裝置，請找到之前確認的COM編號，然後按下連線。若成功則會看到燒錄進度，等他跑完就燒錄完成，燒錄過程中LED螢幕是黑的，有個橘色的LED燈慢慢地閃。
       > 對於某些確定自己不需要ESP32架設一個區域網路的Web用戶端，可以不要打開**Bundle Web UI**來節省空間。
     + 如
 + 2. 設定區域為台灣。不設定區域，則LED螢幕會提示我進行設定，否則無法讓其他Lora通訊功能開始運作。設定了會自動決定台灣的頻段，官方已經查好台灣的法規。
