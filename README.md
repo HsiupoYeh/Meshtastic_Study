@@ -74,7 +74,36 @@
       + 接著第二行左邊有`#LongFast`的頻道ID，右邊有`[i]`再加上藍芽連線用的裝置名稱。
     + 第二頁:
       + 左上有個`B`，接著是`4.58V`，接著是`100%`，接著是`+U`。`4.58V`是電池電壓，`100%`是電量百分比，`+U`是指用USB幫電池充電及運作硬體。
-      + 
+
+
+### 情境測試:
++ 有三台：71a01、73e4、e58c
+  + 71a01: 用USB web client
+  + 73e4: 用WIFI web client
+    + 手機開熱點加相容性(準備英文的SSID與密碼)
+    + 先用電腦操作:
+      + 連接USB
+      + 用web client以USB連接
+      + 選`New Connection`，再找到`Serial`，會找到黑框的按鈕，就是可連線的裝置。
+      + 到`Navigation`>`Config`>`Radio Config`>`Lora`>`Mesh Settings`>`Region`設定為**TW**，之後按右上角的儲存圖示。按下之後會跳出儲存成功的提示，且硬體將會重新啟動。
+      + 到`Navigation`>`Config`>`Radio Config`>`Network`>`WiFi Config`
+        + Enabled: ON
+        + SSID: 填入
+        + 密碼: 填入
+        + 之後按右上角的儲存圖示。按下之後會跳出儲存成功的提示，且硬體將會重新啟動。
+  + e58c: 用藍芽 手機App
+    + 都用APP操作
+    + 按+來找裝置配對。 
+    + 配對成功後，顯示連線成功後，設區域為TW。
+    + 重開機。
+
+
+
+
+
+
+
+
 
 ### Meshtastic Taiwan
 + 他是一個社群，方便台灣普通使用者來快速使用，但有點...。
@@ -212,6 +241,7 @@
         + timeout: 0
       + Serial mode: DEFAULT
       + Override console Serial port: OFF 
+
 
 
 ### 有趣的視覺化地圖
