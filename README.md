@@ -75,3 +75,139 @@
     + 第二頁:
       + 左上有個`B`，接著是`4.58V`，接著是`100%`，接著是`+U`。`4.58V`是電池電壓，`100%`是電量百分比，`+U`是指用USB幫電池充電及運作硬體。
       + 
+
+### Meshtastic Taiwan
++ 他是一個社群，方便台灣普通使用者來快速使用，但有點...。
++ 他有一個QRcode可以設定些東西。
+  + 基本上是個圖檔。
+  + 內容是以下網址：https://meshtastic.org/e/#CgMSAQEKLxIgisDhHrNpJPlGX3GBJBX6kjuK7KQNp4Z0M7OTDpnX5N4aBk1lc2hUVyUBAAAACjMSIMtR3IlYKZeR84dOSiVHv7pllB_F4Rt1I0da72R31BxVGgpTaWduYWxUZXN0JQIAAAAKMxIgy2jnf86fTpf_4AFAf-mCwbzRoxpCV0P90dqJo0-w_SYaCkVtZXJnZW5jeSElAwAAABIOCAE4CEADSAFQEVgQaAE
+  + 沒有看到文件說明這個QRcode幹了什麼事情...
+  + 來抄一下可能App設定的東西：
+    + 名稱:沒改，區域=TW(會改)。
+    + 裝備設定:
+      + **User**: 沒改
+      + **Channels**: 出現四個(原本1個)
+        + 0 LongFast
+          + PSK: AQ==
+          + Uplink enabled: OFF
+          + Downlink enabled: OFF
+          + Position enabled: OFF
+        + 1 MeshTW
+          + PSK: isDhH... 
+          + Uplink enabled: OFF
+          + Downlink enabled: OFF
+          + Position enabled: OFF
+        + 2 SignalTest
+          + PSK: y1Hci... 
+          + Uplink enabled: OFF
+          + Downlink enabled: OFF
+          + Position enabled: OFF
+        + 3 Emergency!
+          + PSK: y2jnf... 
+          + Uplink enabled: OFF
+          + Downlink enabled: OFF
+          + Position enabled: OFF
+      + **Device**:
+        + Role: CLIENT
+          + Redefine PIN_BUTTON: 0
+          + Redefine PIN_BUZZER: 0 
+        + Rebroadcast mode: ALL
+          + NodeInfo broadcast interval (seconds): 10800
+        + Double tap as button press: OFF
+        + Disable triple-click: OFF
+        + Disable LED heartbeat
+        + 
+        + Double tap as button press
+        + Dis 
+      + **Position**:
+        + Position broadcast interval (seconds): 900
+        + Smart position enabled: ON
+        + Smart broadcast minimum distance (meters): 100
+        + Smart broadcast minimum interval (seconds): 30
+        + Use fixed position: OFF
+        + GPS mode: NOT_PRESENT
+        + GPS update interval(seconds): 120
+        + Position flags: 811
+        + Redefine GPS_RX_PIN: 0
+        + Redefine GPS_TX_PIN: 0
+        + Redefine GPS_GPS_EN: 0
+     + **Power**:
+       + Enable power saving mode: OFF
+       + Shutdown on battery delay (seconds): 0
+       + ADC multiplier override ratio: 0.0
+       + Wait for Bluetooth duration (seconds): 60
+       + Super deep sleep duration (seconds): 4294967295
+       + Light sleep duration (seconds): 300
+       + Minimum wake time (seconds): 10
+       + Battery INA_2XX I2C address: 0
+    + **Network**:
+       + WiFi enabled: OFF
+         + SSID
+         + PSK
+       + Ethernet enabled: OFF
+         + NTP Server: meshtastic.pool.ntp.org
+         + rsyslog server: null
+       + IPv4 mode: DHCP
+         + IP 
+         + Gateway
+         + Subnet
+         + DNS
+    + **Display**:
+       + Screen timeout (seconds): 600
+       + GPS coordinates format: DEC
+       + Auto screen carousel (seconds): 0
+       + Compass north top : OFF
+       + Flip screen: OFF
+       + Display units: METRIC
+       + Override OLED auto-detect: OLED_AUTO
+       + Display mode: DEFAULT
+       + Heading bold: OFF
+       + Wake screen on tap or motion: OFF
+       + Compass orientation: DEGREES_0
+    + **LoRa**: 有改
+       + Use modem preset: ON
+       + Modem preset: LONG_FAST
+       + Frequency offset (MHz): 0.0
+       + Region (frequency plan): Taiwan
+       + Hop limit: 3
+       + Tx enabled: ON
+         + Tx power (dBm): 17
+         + Frequency slot: 16
+       + Override Duty Cycle: OFF
+       + SX126X RX boosted gain: ON
+       + Override frequency (MHz): 923.875
+       + Ignore MQTT: OFF
+       + OK to MQTT: OFF
+    + **Bluetooth**:
+       + Bluetooth enabled: ON
+       + Pairing mode: RANDOM_PIN
+         + fixed PIN: 123456
+    + **Security**:
+       + Public Key: Edbzc..
+       + Private Key: OD7UI...
+       + Managed Mode: OFF
+       + Serial console: ON
+       + Debug log API enabled: OFF
+       + Legacy Admin channel: OFF
+    + 模組設定:
+    + **MQTT**: 有改
+      + MQTT enabled: OFF
+        + Address: mqtt.meshtastic.org
+        + Username: meshdev
+        + Password: large4cats
+      + Encryption enabled: ON
+      + JSON output enabled: OFF
+      + TLS enabled: OFF
+      + Root topic: msh/TW (有改)
+      + Proxy to client enabled: OFF
+      + Map reporting: OFF
+        +  Map reporting interval(seconds): 0
+    + **Serial**:
+      + Serial enabled: OFF
+      + Echo enabled: OFF
+        + RX: 0
+        + TX: 0
+      + Serial baud rate: BAUD_DEFAULT
+        + timeout: 0
+      + Serial mode: DEFAULT
+      + Override console Serial port: OFF 
