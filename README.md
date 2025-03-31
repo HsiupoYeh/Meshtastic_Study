@@ -79,7 +79,7 @@
 ### Meshtastic Taiwan
 + 他是一個社群，方便台灣普通使用者來快速使用，但有點...。
 + 他有一個QRcode可以設定些東西。
-  + 基本上是個圖檔。![QRCODE](images/QRCODE.png)
+  + 基本上是個圖檔。![QRCODE](image/QRCODE.png)
   + 內容是以下網址：https://meshtastic.org/e/#CgMSAQEKLxIgisDhHrNpJPlGX3GBJBX6kjuK7KQNp4Z0M7OTDpnX5N4aBk1lc2hUVyUBAAAACjMSIMtR3IlYKZeR84dOSiVHv7pllB_F4Rt1I0da72R31BxVGgpTaWduYWxUZXN0JQIAAAAKMxIgy2jnf86fTpf_4AFAf-mCwbzRoxpCV0P90dqJo0-w_SYaCkVtZXJnZW5jeSElAwAAABIOCAE4CEADSAFQEVgQaAE
   + 沒有看到文件說明這個QRcode幹了什麼事情...
   + 來抄一下可能App設定的東西：
