@@ -77,8 +77,8 @@
 
 
 ### 情境測試:
-+ 有三台：71a01、73e4、e58c
-  + 71a01: 用USB web client
++ 有三台：71a0、73e4、e58c
+  + 71a0: 用USB web client
   + 73e4: 用WIFI web client
     + 手機開熱點加相容性(準備英文的SSID與密碼)
     + 先用電腦操作:
