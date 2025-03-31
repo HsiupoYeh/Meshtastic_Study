@@ -87,7 +87,9 @@
       + 用web client以USB連接。
       + 選`New Connection`，再找到`Serial`，會找到黑框的按鈕，就是可連線的裝置。
       + 到`Navigation`>`Config`>`Radio Config`>`Lora`>`Mesh Settings`>`Region`設定為**TW**，之後按右上角的儲存圖示。按下之後會跳出儲存成功的提示，且硬體將會重新啟動。
-      + 到`Navigation`>`Config`>`Radio Config`>`Network`>`WiFi Config`
+      + 到`Navigation`>`Config`>`Radio Config`>`Lora`>`Mesh Settings`>`Bluetooth Settings`
+        + Enabled: OFF
+      + 到`Navigation`>`Config`>`Radio Config`>`Bluetooth`>`WiFi Config`
         + Enabled: ON
         + SSID: 填入
         + 密碼: 填入
