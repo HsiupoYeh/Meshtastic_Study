@@ -128,7 +128,7 @@
     + 其實GPS就是一種感應器，只是不同感應器要求的UART輸出規則要查一下...
 
 ### 頻道有關測試#1 {AA(AA==,NoShare)} vs {AA(AA==,NoShare)} vs {AA(AA==,NoShare)}
-+ 螢幕會變成#AA
++ 螢幕會變成TW #AA
 
 ### Meshtastic Taiwan
 + 他是一個社群，方便台灣普通使用者來快速使用，但有點...。
