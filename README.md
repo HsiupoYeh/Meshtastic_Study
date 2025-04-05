@@ -129,6 +129,11 @@
 
 ### 頻道有關測試#1 {AA(AA==,NoShare)} vs {AA(AA==,NoShare)} vs {AA(AA==,NoShare)}
 + 螢幕會變成TW #AA
++ 結果會出現3/3
+
+### 頻道有關測試#2 {BB(BB==,NoShare)} vs {BB(BB==,NoShare)} vs {BB(AA==,NoShare)}
++ 螢幕會變成TW #BB
++ 結果會出現?
 
 ### Meshtastic Taiwan
 + 他是一個社群，方便台灣普通使用者來快速使用，但有點...。
