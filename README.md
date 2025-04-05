@@ -128,9 +128,13 @@
     + 其實GPS就是一種感應器，只是不同感應器要求的UART輸出規則要查一下...
 
 ### 頻道有關測試#1 {AA(AA==,NoShare)} vs {AA(AA==,NoShare)} vs {AA(AA==,NoShare)}
++  有三台：71a0、73e4、e58c
+  + 71a0: 用USB web client
+  + 73e4: 用WIFI web client
+  + e58c: 用藍芽APP
 + 螢幕會變成TW #AA
-+ 結果會出現3/3
-+ AA Primary發送訊息: 有ACK，其他裝置可收到。
++ 三台都會出現3/3
++ 71a0: AA Primary發送訊息: 有ACK，其他裝置可收到。
 
 ### 頻道有關測試#2 {BB(BA==,NoShare)} vs {BB(BA==,NoShare)} vs {BB(AA==,NoShare)}
 + 螢幕會變成TW #BB
