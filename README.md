@@ -56,7 +56,7 @@
   + 三次按壓：根據需求啟用/禁用 GPS 模組。如果添加了 NPN 晶體管，它將切斷 GPS 板的電源。為了讓這個開關功能生效，必須在應用程式中的 Position 模組 裡配置 PIN_GPS_EN 來設定 NPN 腳位。
 
 ### 初次設定
-+ 有很多用戶端，我選擇最簡單的網頁用戶端https://client.meshtastic.org/，只需要有**Edge (Microsoft Edge)**，不必安裝軟體。
++ 有很多用戶端，我選擇最簡單的網頁用戶端 https://client.meshtastic.org/ ，只需要有**Edge (Microsoft Edge)**，不必安裝軟體。
   + 初次設定不能用WIFI，因為WIFI與藍芽只能同時存在一個，預設是藍芽。
   + 如果你的電腦有藍芽，也可以用藍芽，目前先不考慮使用。因為我在用的時候，都讀不到一些設備資訊，名稱、電壓之類的。
   + 使用USB連線。只要你有裝好Driver。
@@ -85,7 +85,7 @@
       + 使用 **Edge** 前往燒錄網站：https://flasher.meshtastic.org/
       + 燒錄有`Bundle Web UI`的韌體。
       + 連接USB。
-      + 用web client(https://client.meshtastic.org/)以USB連接。
+      + 用web client( https://client.meshtastic.org/ ) 以USB連接。
       + 選`New Connection`，再找到`Serial`，會找到黑框的按鈕，就是可連線的裝置。
       + 到`Navigation`>`Config`>`Radio Config`>`Lora`>`Mesh Settings`>`Region`設定為**TW**，之後按右上角的儲存圖示。按下之後會跳出儲存成功的提示，且硬體將會重新啟動。
       + 到`Navigation`>`Config`>`Radio Config`>`Lora`>`Mesh Settings`>`Bluetooth Settings`
