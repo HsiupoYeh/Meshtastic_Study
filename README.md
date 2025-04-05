@@ -130,10 +130,11 @@
 ### 頻道有關測試#1 {AA(AA==,NoShare)} vs {AA(AA==,NoShare)} vs {AA(AA==,NoShare)}
 + 螢幕會變成TW #AA
 + 結果會出現3/3
++ AA Primary發送訊息: 有ACK，其他裝置可收到。
 
 ### 頻道有關測試#2 {BB(BA==,NoShare)} vs {BB(BA==,NoShare)} vs {BB(AA==,NoShare)}
 + 螢幕會變成TW #BB
-+ 結果會出現?
++ 結果會出現2/2 vs 2/2 vs 1/1
 
 ### Meshtastic Taiwan
 + 他是一個社群，方便台灣普通使用者來快速使用，但有點...。
