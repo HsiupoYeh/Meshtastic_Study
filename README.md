@@ -82,6 +82,7 @@
   + 73e4: 用WIFI web client
     + 手機開熱點加相容性(準備英文的SSID與密碼)
     + 先用電腦操作:
+      + 使用 **Edge** 前往燒錄網站：https://flasher.meshtastic.org/
       + 燒錄有`Bundle Web UI`的韌體。
       + 連接USB。
       + 用web client以USB連接。
