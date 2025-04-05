@@ -114,7 +114,7 @@
     + Uplink Enabled： OFF
     + Downlink Enabled： OFF
     + Location：Do not share location
-    + 
+    + 分享用網址: https://meshtastic.org/e/#CgcSAQE6AggNEgwIATgIQANIAVAbaAE
 + 有點令人不太確定的是primary號稱用來傳輸某些東西。據我了解，就是用二進位(不可見文字)傳了他封裝的資料，而非聊天室的可見字元。這樣用戶就看不到誰報告了甚麼數據，但其實大家都有收到，可以讓聊天室安靜一點。如果我自己要實作這種資料傳輸，就必須用比較浪費空間的可見文字來傳遞，而且聊天室會很吵。
   + GPS數據:
     + Meshtastic封裝了他想要的資訊到自己的格式並只能經由primary頻道傳遞給其他節點。條件當然是頻道名稱與PSK相同。
