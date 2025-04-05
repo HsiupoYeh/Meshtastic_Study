@@ -137,8 +137,13 @@
 + 71a0: AA Primary發送訊息: 有ACK，其他裝置可收到。
 
 ### 頻道有關測試#2 {BB(BA==,NoShare)} vs {BB(BA==,NoShare)} vs {BB(AA==,NoShare)}
++  有三台：71a0、73e4、e58c
+  + 71a0: 用USB web client
+  + 73e4: 用WIFI web client
+  + e58c: 用藍芽APP
 + 螢幕會變成TW #BB
-+ 結果會出現2/2 vs 2/2 vs 1/1
++ 71a0、73e4會出現2/2
++ e58c會出現1/1
 
 ### Meshtastic Taiwan
 + 他是一個社群，方便台灣普通使用者來快速使用，但有點...。
