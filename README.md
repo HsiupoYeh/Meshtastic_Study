@@ -86,11 +86,11 @@
       + 燒錄有`Bundle Web UI`的韌體。
       + 連接USB。
       + 用web client( https://client.meshtastic.org/ ) 以USB連接。
-      + 選`New Connection`，再找到`Serial`，會找到黑框的按鈕，就是可連線的裝置。
-      + 到`Navigation`>`Config`>`Radio Config`>`Lora`>`Mesh Settings`>`Region`設定為**TW**，之後按右上角的儲存圖示。按下之後會跳出儲存成功的提示，且硬體將會重新啟動。
-      + 到`Navigation`>`Config`>`Radio Config`>`Lora`>`Mesh Settings`>`Bluetooth Settings`
+      + 使用序列埠連線：選`New Connection`，再找到`Serial`，會找到黑框的按鈕，就是可連線的裝置。
+      + 設定區域：到`Navigation`>`Config`>`Radio Config`>`Lora`>`Mesh Settings`>`Region`設定為**TW**，之後按右上角的儲存圖示。按下之後會跳出儲存成功的提示，且硬體將會重新啟動。
+      + 關閉藍芽：到`Navigation`>`Config`>`Radio Config`>`Lora`>`Mesh Settings`>`Bluetooth Settings`
         + Enabled: OFF
-      + 到`Navigation`>`Config`>`Radio Config`>`Bluetooth`>`WiFi Config`
+      + 啟用並設定WIFI用戶端：到`Navigation`>`Config`>`Radio Config`>`Bluetooth`>`WiFi Config`
         + Enabled: ON
         + SSID: 填入
         + 密碼: 填入
