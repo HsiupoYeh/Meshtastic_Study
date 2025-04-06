@@ -83,11 +83,30 @@
 先佔用了前3個頻道，留5個頻道給自訂用途。
 ```
 + 用71a0。
-+ 頻道：
+  + 先燒韌體確認本機代號為71a0。並且貼上貼紙。先不必設定。
++ 焊接：
+  + 拆開外殼。
+  + `PIN#19`、`PIN#20`那排為下排，焊接那一排的PIN腳。
+  + 焊接`PIN#48`到 `藍色杜邦線(末端為母頭)`。這會被規劃為TX。
+  + 焊接`PIN#47`到 `綠色杜邦線(末端為母頭)`。這會被規劃為RX。
+  + 焊接`GND`到 `黑色杜邦線(末端為母頭)`。
+  + 裝回外殼。
++ 與測試用USBtoTTL裝置連接:
+  + `藍色杜邦線(71a0_TX)`接到`(USBtoTTL_RXD)`。
+  + `綠色杜邦線(71a0_RX)`接到`(USBtoTTL_TXD)`。
+  + `黑色杜邦線(71a0_GND)`接到`(USBtoTTL_GND)`。
++ Radio Config > Lora > Mesh Settings:
+  + **Region**: `TW`
++ 頻道設定：
   + #1(Primary): {"Channel Name":"LongFast", "Pre-Shared Key":"AQ=="}
   + #2(Secondary): {"Channel Name":"LongFast", "Pre-Shared Key":"Ag=="}
   + #3(Secondary): {"Channel Name":"LongFast", "Pre-Shared Key":"Aw=="}
-
+    
++ Module Config > Serial > Serial Settings:
+  + Module Enabled: ON
+  + Echo: ON
+  + Receive Pin: 47
+  + Transmit Pin: 48
 
 
 ### 情境測試:
