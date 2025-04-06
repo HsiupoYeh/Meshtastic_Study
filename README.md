@@ -128,6 +128,7 @@
     + 其實GPS就是一種感應器，只是不同感應器要求的UART輸出規則要查一下...
 
 ### 頻道有關測試#1.1 {AA(AA==,NoShare)} vs {AA(AA==,NoShare)} vs {AA(AA==,NoShare)}
++ 所有裝置都使用相同主頻道名稱與PSK，可以在主頻道聊天。
 +  有三台：71a0、73e4、e58c
   + 71a0: 用USB web client
   + 73e4: 用WIFI web client
@@ -139,6 +140,7 @@
 + e58c: AA Primary發送訊息: 有ACK，其他裝置在AA Primary可收到且名字都正常。
 
 ### 頻道有關測試#1.2 {AA(AA==,NoShare);BB(BA==,NoShare)} vs {AA(AA==,NoShare);BB(BA==,NoShare)} vs {AA(AA==,NoShare);BB(BA==,NoShare)}
++ 所有裝置都使用相同主頻道名稱與PSK，也使用相同副頻道名稱與PSK，可以在主頻道、副頻道聊天。
 +  有三台：71a0、73e4、e58c
   + 71a0: 用USB web client
   + 73e4: 用WIFI web client
