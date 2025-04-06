@@ -189,7 +189,7 @@
   + 73e4: 用WIFI web client
   + e58c: 用藍芽APP
 + 螢幕會變成TW #CC
-+ 71a0、73e4會出現2/2，放很久就變3/3。
++ 71a0、73e4會出現2/2，e58c用CC Secondary溝通過之後放一陣子就變3/3。
 + e58c會出現3/3
 + 71a0: CC Primary發送訊息: 有ACK，73e4裝置在CC Primary可收到且名字正常，e58c裝置在CC Secondary可收到且名字正常。
 + 73e4: CC Primary發送訊息: 有ACK，71a0裝置在CC Primary可收到且名字正常，e58c裝置在CC Secondary可收到且名字正常。
@@ -202,7 +202,20 @@
   + 73e4: 用WIFI web client
   + e58c: 用藍芽APP
 + 螢幕會變成TW #CC
-+ 71a0會出現1/1，放很久不知道會不會變2/2
++ 71a0會出現1/1，e58c用CC Secondary溝通過之後放一陣子就變2/2。
++ 73e4e關機
++ e58c會出現2/2
++ 71a0: CC Primary發送訊息: 有ACK，e58c裝置在CC Secondary可收到且名字正常。
++ e58c: CC Primary發送訊息: 有ACK，其他裝置收不到。
++ e58c: CC Secondary發送訊息: 有ACK，71a0裝置在CC Primary可收到且名字正常。
+
+### 頻道有關測試#3.3 {CC(CA==,NoShare);CC(AA==,NoShare)} vs {OFF} vs {CC(AA==,NoShare);CC(CA==,NoShare)}
++  有三台：71a0、73e4、e58c
+  + 71a0: 用USB web client
+  + 73e4: 用WIFI web client
+  + e58c: 用藍芽APP
++ 螢幕會變成TW #CC
++ 71a0會出現1/1，e58c用CC Secondary溝通過之後放一陣子就變2/2。
 + 73e4e關機
 + e58c會出現2/2
 + 71a0: CC Primary發送訊息: 有ACK，e58c裝置在CC Secondary可收到且名字正常。
