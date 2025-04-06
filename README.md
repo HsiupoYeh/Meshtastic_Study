@@ -110,7 +110,13 @@
     + Uplink Enabled: `OFF` (不用改)
     + Downlink Enabled: `OFF` (不用改)
     + **Location**: `Do not share location` **(請手動修改)**
-  + #3(Secondary): {"Channel Name":"LongFast", "Pre-Shared Key":"Aw=="}
+  + CH2 Channel: {"Channel Name":"LongFast", "Pre-Shared Key":"Aw=="}
+    + **Role**: `SECONDARY` **(請手動修改)**
+    + **Pre-Shared Key**: `Aw==` `8bit` **(請手動修改)**
+    + **Name**: `LongFast` **(請手動輸入)**
+    + Uplink Enabled: `OFF` (不用改)
+    + Downlink Enabled: `OFF` (不用改)
+    + **Location**: `Do not share location` **(請手動修改)**
     
 + Module Config > Serial > Serial Settings:
   + Module Enabled: ON
