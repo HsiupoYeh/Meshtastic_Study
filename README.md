@@ -157,10 +157,11 @@
   + e58c: 用藍芽APP
 + 螢幕會變成TW #BB
 + 71a0、73e4會出現2/2
-+ e58c會出現1/1
-+ 71a0: BB Primary發送訊息: 有ACK，73e4裝置可收到。
-+ 73e4: BB Primary發送訊息: 有ACK，71a0裝置可收到。
-+ e58c: BB Primary發送訊息: 有ACK，其他裝置收不到。
++ e58c會出現3/3
++ 71a0: CC Primary發送訊息: 有ACK，73e4裝置在CC Primary可收到且名字正常，73e4裝置在CC Secondary可收到且名字正常。
++ 73e4: CC Primary發送訊息: 有ACK，71a0裝置在CC Primary可收到且名字正常，73e4裝置在CC Secondary可收到且名字正常。
++ e58c: CC Primary發送訊息: 有ACK，其他裝置收不到。
++ e58c: CC Secondary發送訊息: 有ACK，71a0裝置在CC Primary可收到但名字為UNK，73e4裝置在CC Primary可收到但名字為UNK。
   
 ### Meshtastic Taiwan
 + 他是一個社群，方便台灣普通使用者來快速使用，但有點...。
