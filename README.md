@@ -119,10 +119,14 @@
     + **Location**: `Do not share location` **(請手動修改)**
     
 + Module Config > Serial > Serial Settings:
-  + Module Enabled: ON
-  + Echo: ON
-  + Receive Pin: 47
-  + Transmit Pin: 48
+  + **Module Enabled**: `ON` **(請手動修改)**
+  + **Echo**: `ON` **(請手動修改)**
+  + **Receive Pin**: `47` **(請手動修改)**
+  + **Transmit Pin**: `48` **(請手動修改)**
+  + **Baud Rate**: `BAUD_19200` **(請手動修改)**
+  + Timeout: `0` (不用改)
+  + **Mode**: `Textmsg` **(請手動修改)**
+  + **Override Console Serial Port**: `OFF` (不用改)
 
 
 ### 情境測試:
