@@ -127,6 +127,7 @@
     + Meshtastic封裝了他想要的資訊到自己的格式並只能經由primary頻道傳遞給其他節點。條件當然是頻道名稱與PSK相同。
     + 其實GPS就是一種感應器，只是不同感應器要求的UART輸出規則要查一下...
 
+## 頻道測試AA(正常狀態)
 ### 頻道有關測試#1.1 {AA(AA==,NoShare)} vs {AA(AA==,NoShare)} vs {AA(AA==,NoShare)}
 + 所有裝置都使用相同主頻道名稱與PSK，可以在主頻道聊天。
 +  有三台：71a0、73e4、e58c
@@ -154,7 +155,9 @@
 + 73e4: BB Secondary發送訊息: 有ACK，其他裝置在BB Secondary可收到且名字都正常。
 + e58c: BB Secondary發送訊息: 有ACK，其他裝置在BB Secondary可收到且名字都正常。
 
-### 頻道有關測試#2 {BB(BA==,NoShare)} vs {BB(BA==,NoShare)} vs {BB(AA==,NoShare)}
+## 頻道測試BB(特殊狀態)
+### 頻道有關測試#2.1 {BB(BA==,NoShare)} vs {BB(BA==,NoShare)} vs {BB(AA==,NoShare)}
++ 所有裝置都使用相同主頻道名稱但部分PSK不同，可以通訊但不一定能顯示在聊天室中。
 +  有三台：71a0、73e4、e58c
   + 71a0: 用USB web client
   + 73e4: 用WIFI web client
@@ -162,22 +165,49 @@
 + 螢幕會變成TW #BB
 + 71a0、73e4會出現2/2
 + e58c會出現1/1
-+ 71a0: BB Primary發送訊息: 有ACK，73e4裝置可收到。
-+ 73e4: BB Primary發送訊息: 有ACK，71a0裝置可收到。
++ 71a0: BB Primary發送訊息: 有ACK，73e4裝置在BB Primary可收到且名字都正常。e58c裝置收不到。
++ 73e4: BB Primary發送訊息: 有ACK，71a0裝置在BB Primary可收到且名字都正常。e58c裝置收不到。
 + e58c: BB Primary發送訊息: 有ACK，其他裝置收不到。
 
-### 頻道有關測試#3 {CC(CA==,NoShare)} vs {CC(CA==,NoShare)} vs {CC(AA==,NoShare);CC(CA==,NoShare)}
+### 頻道有關測試#2.2 {BB(BA==,NoShare)} vs {OFF} vs {BB(AA==,NoShare)}
++ 所有裝置都使用相同主頻道名稱但部分PSK不同，可以通訊但不一定能顯示在聊天室中。
 +  有三台：71a0、73e4、e58c
   + 71a0: 用USB web client
   + 73e4: 用WIFI web client
   + e58c: 用藍芽APP
 + 螢幕會變成TW #BB
-+ 71a0、73e4會出現2/2
++ 71a0會出現1/1
++ 73e4e關機
++ e58c會出現1/1
++ 71a0: BB Primary發送訊息: 有ACK，e58c裝置收不到。
++ e58c: BB Primary發送訊息: 有ACK，其他裝置收不到。
+
+## 頻道測試CC(特殊狀態)
+### 頻道有關測試#3.1 {CC(CA==,NoShare)} vs {CC(CA==,NoShare)} vs {CC(AA==,NoShare);CC(CA==,NoShare)}
++  有三台：71a0、73e4、e58c
+  + 71a0: 用USB web client
+  + 73e4: 用WIFI web client
+  + e58c: 用藍芽APP
++ 螢幕會變成TW #CC
++ 71a0、73e4會出現2/2，放很久就變3/3。
 + e58c會出現3/3
-+ 71a0: CC Primary發送訊息: 有ACK，73e4裝置在CC Primary可收到且名字正常，73e4裝置在CC Secondary可收到且名字正常。
-+ 73e4: CC Primary發送訊息: 有ACK，71a0裝置在CC Primary可收到且名字正常，73e4裝置在CC Secondary可收到且名字正常。
++ 71a0: CC Primary發送訊息: 有ACK，73e4裝置在CC Primary可收到且名字正常，e58c裝置在CC Secondary可收到且名字正常。
++ 73e4: CC Primary發送訊息: 有ACK，71a0裝置在CC Primary可收到且名字正常，e58c裝置在CC Secondary可收到且名字正常。
 + e58c: CC Primary發送訊息: 有ACK，其他裝置收不到。
-+ e58c: CC Secondary發送訊息: 有ACK，71a0裝置在CC Primary可收到但名字為UNK，73e4裝置在CC Primary可收到但名字為UNK。
++ e58c: CC Secondary發送訊息: 有ACK，71a0裝置在CC Primary可收到但名字為UNK(有一次名字正常)，73e4裝置在CC Primary可收到但名字為UNK。
+
+### 頻道有關測試#3.2 {CC(CA==,NoShare)} vs {OFF} vs {CC(AA==,NoShare);CC(CA==,NoShare)}
++  有三台：71a0、73e4、e58c
+  + 71a0: 用USB web client
+  + 73e4: 用WIFI web client
+  + e58c: 用藍芽APP
++ 螢幕會變成TW #CC
++ 71a0會出現1/1，放很久不知道會不會變2/2
++ 73e4e關機
++ e58c會出現2/2
++ 71a0: CC Primary發送訊息: 有ACK，e58c裝置在CC Secondary可收到且名字正常。
++ e58c: CC Primary發送訊息: 有ACK，其他裝置收不到。
++ e58c: CC Secondary發送訊息: 有ACK，71a0裝置在CC Primary可收到且名字正常。
   
 ### Meshtastic Taiwan
 + 他是一個社群，方便台灣普通使用者來快速使用，但有點...。
