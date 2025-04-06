@@ -76,6 +76,16 @@
       + 左上有個`B`，接著是`4.58V`，接著是`100%`，接著是`+U`。`4.58V`是電池電壓，`100%`是電量百分比，`+U`是指用USB幫電池充電及運作硬體。
 
 
+
+### 我規定的WIFI版標準節點
+```
+主頻道要用預設的名稱，PSK也要用預設的名稱。這樣方便回應所有想測試的人。
+```
++ 用71a0。
++ 頻道：
+  + Primary： {"Channel Name" : "LongFast", "Pre-Shared Key": ""
+
+
 ### 情境測試:
 + 有三台：71a0、73e4、e58c
   + 71a0: 用USB web client
@@ -365,3 +375,5 @@
 + https://meshsight.nfs.tw/
 + https://meshmap.net/ 壞了?
 + https://meshtastic.liamcottle.net/
+
+
