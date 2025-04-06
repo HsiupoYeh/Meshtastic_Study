@@ -26,7 +26,7 @@
 + 目前只練習使用官方開發功能的韌體，所以依照官方的指示進行燒錄。
 + 需求：
   + 要有**網路**。
-  + 要有**CP2102**的驅動。通常Win10以後有內建，沒有的話自己去找。
+  + 要有**CP2102**的驅動。通常Win10以後有內建，沒有的話官網幫你整理好了: https://meshtastic.org/docs/getting-started/serial-drivers/esp32/ 。
   + 使用 **Edge (Microsoft Edge)** 或 Chrome (Google Chrome) 。這兩個才支援一些序列埠API。
 + 步驟：
   + 先用USB連接**Heltec V3**與電腦。用裝置管理員確認有找到新增一個CP2102的COM裝置，並記得他的COM編號。
