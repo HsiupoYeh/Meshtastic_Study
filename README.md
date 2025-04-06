@@ -120,14 +120,15 @@
     
 + Module Config > Serial > Serial Settings:
   + **Module Enabled**: `ON` **(請手動修改)**
-  + **Echo**: `ON` **(請手動修改)**
+  + **Echo**: `OFF` (不用改)
   + **Receive Pin**: `47` **(請手動修改)**
   + **Transmit Pin**: `48` **(請手動修改)**
   + **Baud Rate**: `BAUD_19200` **(請手動修改)**
   + Timeout: `0` (不用改)
   + **Mode**: `Textmsg` **(請手動修改)**
   + **Override Console Serial Port**: `OFF` (不用改)
-
+> 根據測試，ECHO是指如果有人用APP或網頁打字發送訊息，這文字訊息也從UART_RX可以收到。
+> 用UART_TX發送的訊息，對方可以收到，但完全不會出現在自己的APP或網頁聊天室。即使開啟ECHO也不會從UART_RX收到剛剛傳送的訊息。也就是說用UART丟訊息沒有辦法用UART或本機聊天室查自己丟了什麼(也不會存成紀錄)。
 
 ### 情境測試:
 + 有三台：71a0、73e4、e58c
