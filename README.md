@@ -127,16 +127,30 @@
     + Meshtastic封裝了他想要的資訊到自己的格式並只能經由primary頻道傳遞給其他節點。條件當然是頻道名稱與PSK相同。
     + 其實GPS就是一種感應器，只是不同感應器要求的UART輸出規則要查一下...
 
-### 頻道有關測試#1 {AA(AA==,NoShare)} vs {AA(AA==,NoShare)} vs {AA(AA==,NoShare)}
+### 頻道有關測試#1.1 {AA(AA==,NoShare)} vs {AA(AA==,NoShare)} vs {AA(AA==,NoShare)}
 +  有三台：71a0、73e4、e58c
   + 71a0: 用USB web client
   + 73e4: 用WIFI web client
   + e58c: 用藍芽APP
 + 螢幕會變成TW #AA
 + 三台都會出現3/3
-+ 71a0: AA Primary發送訊息: 有ACK，其他裝置可收到。
-+ 73e4: AA Primary發送訊息: 有ACK，其他裝置可收到。
-+ e58c: AA Primary發送訊息: 有ACK，其他裝置可收到。
++ 71a0: AA Primary發送訊息: 有ACK，其他裝置在AA Primary可收到且名字都正常。
++ 73e4: AA Primary發送訊息: 有ACK，其他裝置在AA Primary可收到且名字都正常。
++ e58c: AA Primary發送訊息: 有ACK，其他裝置在AA Primary可收到且名字都正常。
+
+### 頻道有關測試#1.2 {AA(AA==,NoShare);BB(BA==,NoShare)} vs {AA(AA==,NoShare);BB(BA==,NoShare)} vs {AA(AA==,NoShare);BB(BA==,NoShare)}
++  有三台：71a0、73e4、e58c
+  + 71a0: 用USB web client
+  + 73e4: 用WIFI web client
+  + e58c: 用藍芽APP
++ 螢幕會變成TW #AA
++ 三台都會出現3/3
++ 71a0: AA Primary發送訊息: 有ACK，其他裝置在AA Primary可收到且名字都正常。
++ 73e4: AA Primary發送訊息: 有ACK，其他裝置在AA Primary可收到且名字都正常。
++ e58c: AA Primary發送訊息: 有ACK，其他裝置在AA Primary可收到且名字都正常。
++ 71a0: BB Secondary發送訊息: 有ACK，其他裝置在BB Secondary可收到且名字都正常。
++ 73e4: BB Secondary發送訊息: 有ACK，其他裝置在BB Secondary可收到且名字都正常。
++ e58c: BB Secondary發送訊息: 有ACK，其他裝置在BB Secondary可收到且名字都正常。
 
 ### 頻道有關測試#2 {BB(BA==,NoShare)} vs {BB(BA==,NoShare)} vs {BB(AA==,NoShare)}
 +  有三台：71a0、73e4、e58c
