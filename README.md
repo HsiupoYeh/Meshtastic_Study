@@ -58,7 +58,7 @@
 ### 初次設定
 + 有很多用戶端，我選擇最簡單的網頁用戶端 https://client.meshtastic.org/ ，只需要有**Edge (Microsoft Edge)**，不必安裝軟體。
   + 初次設定不能用WIFI，因為WIFI與藍芽只能同時存在一個，預設是藍芽。
-  + 如果你的電腦有藍芽，也可以用藍芽，目前先不考慮使用。因為我在用的時候，都讀不到一些設備資訊，名稱、電壓之類的。
+  + 如果你的電腦有藍芽，也可以用藍芽，目前先不考慮使用。
   + 使用USB連線。只要你有裝好Driver。
 + 設定區域：
   + 選`New Connection`，再找到`Serial`，會找到黑框的按鈕，就是可連線的裝置。
@@ -74,8 +74,6 @@
       + 接著第二行左邊有`#LongFast`的頻道ID，右邊有`[i]`再加上藍芽連線用的裝置名稱。
     + 第二頁:
       + 左上有個`B`，接著是`4.58V`，接著是`100%`，接著是`+U`。`4.58V`是電池電壓，`100%`是電量百分比，`+U`是指用USB幫電池充電及運作硬體。
-
-
 
 ### 我規定的WIFI版標準節點
 ```
@@ -97,8 +95,15 @@
   + `黑色杜邦線(71a0_GND)`接到`(USBtoTTL_GND)`。
 + Radio Config > Lora > Mesh Settings:
   + **Region**: `TW`
-+ 頻道設定：
-  + #1(Primary): {"Channel Name":"LongFast", "Pre-Shared Key":"AQ=="}
++ Channels：
+  + #1 Channel: Primary `{"Channel Name":"LongFast", "Pre-Shared Key":"AQ=="}`
+    + Role: `PRIMARY` (不能改)
+    + Pre-Shared Key: `AQ==` `8bit` (不用改)
+    + **Name**: `LongFast` **(請手動輸入)**
+    + Uplink Enabled: `OFF` (不用改)
+    + Downlink Enabled: `OFF` (不用改)
+    + Location: `Within 2.9 kilometers` (不用改)
+  + #1(Primary): 
   + #2(Secondary): {"Channel Name":"LongFast", "Pre-Shared Key":"Ag=="}
   + #3(Secondary): {"Channel Name":"LongFast", "Pre-Shared Key":"Aw=="}
     
