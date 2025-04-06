@@ -96,15 +96,20 @@
 + Radio Config > Lora > Mesh Settings:
   + **Region**: `TW`
 + Channels：
-  + #1 Channel: Primary `{"Channel Name":"LongFast", "Pre-Shared Key":"AQ=="}`
+  + CH0 Channel: `{"Channel Name":"LongFast", "Pre-Shared Key":"AQ=="}`
     + Role: `PRIMARY` (不能改)
     + Pre-Shared Key: `AQ==` `8bit` (不用改)
     + **Name**: `LongFast` **(請手動輸入)**
     + Uplink Enabled: `OFF` (不用改)
     + Downlink Enabled: `OFF` (不用改)
     + Location: `Within 2.9 kilometers` (不用改)
-  + #1(Primary): 
-  + #2(Secondary): {"Channel Name":"LongFast", "Pre-Shared Key":"Ag=="}
+  + CH1 Channel: {"Channel Name":"LongFast", "Pre-Shared Key":"Ag=="}
+    + **Role**: `SECONDARY` **(請手動修改)**
+    + **Pre-Shared Key**: `Ag==` `8bit` **(請手動修改)**
+    + **Name**: `LongFast` **(請手動輸入)**
+    + Uplink Enabled: `OFF` (不用改)
+    + Downlink Enabled: `OFF` (不用改)
+    + **Location**: `Do not share location` **(請手動修改)**
   + #3(Secondary): {"Channel Name":"LongFast", "Pre-Shared Key":"Aw=="}
     
 + Module Config > Serial > Serial Settings:
