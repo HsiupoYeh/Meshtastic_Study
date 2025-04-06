@@ -80,10 +80,14 @@
 ### 我規定的WIFI版標準節點
 ```
 主頻道要用預設的名稱，PSK也要用預設的名稱。這樣方便回應所有想測試的人。
+先佔用了前3個頻道，留5個頻道給自訂用途。
 ```
 + 用71a0。
 + 頻道：
-  + Primary： {"Channel Name" : "LongFast", "Pre-Shared Key": ""
+  + #1(Primary): {"Channel Name":"LongFast", "Pre-Shared Key":"AQ=="}
+  + #2(Secondary): {"Channel Name":"LongFast", "Pre-Shared Key":"Ag=="}
+  + #3(Secondary): {"Channel Name":"LongFast", "Pre-Shared Key":"Aw=="}
+
 
 
 ### 情境測試:
