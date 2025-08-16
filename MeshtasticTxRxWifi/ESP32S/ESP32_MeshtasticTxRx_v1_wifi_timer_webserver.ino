@@ -1,5 +1,5 @@
 //**************************************************************************
-//   Name: ESP32_MeshtasticTxRx_v1_wifi_timer_webserver.m 
+//   Name: ESP32_MeshtasticTXRX_v1_wifi_timer_webserver.m 
 //   Copyright:  
 //   Author: HsiupoYeh 
 //   Version: v20250813a
@@ -440,8 +440,8 @@ void loop() {
     String temp_str = Serial1.readString();
     // 計算內容長度
     int len = temp_str.length();
-    //Serial.print("Received string length: ");
-    //Serial.println(len);
+    Serial.print("Received string length: ");
+    Serial.println(len);
 
     // 判斷條件：
     // 1. 總長度至少要有 6 個字元 (開頭的 \r\n 和結尾的 \r\n\r\n)
@@ -467,10 +467,28 @@ void loop() {
       // 傳送HMI命令，要用write才能處理不可見字元。
       sprintf(temp_cmd_str,"t0.txt=\"%s\"\xff\xff\xff",MeshtasticMessage.c_str());
       Serial2.write(temp_cmd_str);
-    } else {
+    }
+    else if (len >= 4 && 
+        temp_str.charAt(0) == '\r' && 
+        temp_str.charAt(1) == '\n' &&
+        temp_str.charAt(len - 2) == '\r' && 
+        temp_str.charAt(len - 1) == '\n')
+    {
+      // 提取核心內容：從索引 2 開始，到倒數第3個字元結束
+      MeshtasticMessage = temp_str.substring(2, len - 2);
+      Serial.println(MeshtasticMessage);      
+      // 傳送HMI命令，要用write才能處理不可見字元。
+      sprintf(temp_cmd_str,"t0.txt=\"msg->%s\"\xff\xff\xff",MeshtasticMessage.c_str());
+      Serial2.write(temp_cmd_str);
+    }  
+    else 
+    {
       Serial.println("MeshtasticMessage format is incorrect.");
       Serial.print("Received string: ");
       Serial.println(temp_str);
+      // 傳送HMI命令，要用write才能處理不可見字元。
+      sprintf(temp_cmd_str,"t0.txt=\"Error->%s\"\xff\xff\xff",temp_str.c_str());
+      Serial2.write(temp_cmd_str);
     }
   }
   //---------------------------------------------------------------
