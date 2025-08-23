@@ -236,11 +236,11 @@ void setup() {
   //--
   // 印出歡迎訊息:
   Serial.print("\n");//第一行常有亂碼，先使用換行字元
-	Serial.print("*************************************\n");
-	Serial.print("* 韌體名稱: ESP32_MeshtasticTxRx_v1_wifi_timer_webserver \n"); 
+  Serial.print("*************************************\n");
+  Serial.print("* 韌體名稱: ESP32_MeshtasticTxRx_v1_wifi_timer_webserver \n"); 
   Serial.print(String("") + "* 版本: " + FW_VERSION_str + " \n");
-	Serial.print("* Author: HsiupoYeh \n");
-	Serial.print("*************************************\n");
+  Serial.print("* Author: HsiupoYeh \n");
+  Serial.print("*************************************\n");
   //---------------------------------------------------------------
   //---------------------------------------------------------------
   // 與Meshtastic溝通用的UART1
