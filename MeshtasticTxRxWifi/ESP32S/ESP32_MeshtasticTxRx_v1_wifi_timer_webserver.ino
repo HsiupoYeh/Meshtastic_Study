@@ -38,6 +38,8 @@ char Serial1_RxChar;
 char temp_str[512];
 char temp_cmd_str[512];
 String MeshtasticMessage;//Meshtastic訊息文字
+String MeshtasticMessageFromID;
+String MeshtasticMessage_MPPT;//規劃的MPPT訊息，用Meshtastic訊息文字傳輸
 //--
 void ARDUINO_ISR_ATTR onTimer0(){
   //--------------------------------------------------------------- 
@@ -439,46 +441,28 @@ void loop() {
     // 讀取所有可用的資料
     String temp_str = Serial1.readString();
     // 計算內容長度
-    int len = temp_str.length();
-    Serial.print("Received string length: ");
-    Serial.println(len);
+    int temp_str_length = temp_str.length();
+    Serial.print("Meshtastic的UART接收字串長度: ");
+    Serial.println(temp_str_length);
 
     // 判斷條件：
-    // 1. 總長度至少要有 6 個字元 (開頭的 \r\n 和結尾的 \r\n\r\n)
+    // 1. 總長度至少要有 4 個字元 (開頭的 \r\n 和結尾的 \r\n)
     // 2. 索引 0 是 0x0D ('\r')
     // 3. 索引 1 是 0x0A ('\n')
     // 4. 最後一個字元是 0x0A ('\n')
     // 5. 倒數第二個字元是 0x0D ('\r')
-    // 6. 倒數第三個字元是 0x0D ('\n')
-    // 7. 倒數第四個字元是 0x0D ('\r')
-    if (len >= 6 && 
+    if (temp_str_length >= 4 && 
         temp_str.charAt(0) == '\r' && 
         temp_str.charAt(1) == '\n' &&
-        temp_str.charAt(len - 4) == '\r' && 
-        temp_str.charAt(len - 3) == '\n' &&
-        temp_str.charAt(len - 2) == '\r' && 
-        temp_str.charAt(len - 1) == '\n') 
-    {
-      //Serial.println("Found a complete and correctly formatted MeshtasticMessage.");
-      
-      // 提取核心內容：從索引 2 開始，到倒數第5個字元結束
-      MeshtasticMessage = temp_str.substring(2, len - 4);
-      Serial.println(MeshtasticMessage);      
-      // 傳送HMI命令，要用write才能處理不可見字元。
-      sprintf(temp_cmd_str,"t0.txt=\"%s\"\xff\xff\xff",MeshtasticMessage.c_str());
-      Serial2.write(temp_cmd_str);
-    }
-    else if (len >= 4 && 
-        temp_str.charAt(0) == '\r' && 
-        temp_str.charAt(1) == '\n' &&
-        temp_str.charAt(len - 2) == '\r' && 
-        temp_str.charAt(len - 1) == '\n')
+        temp_str.charAt(temp_str_length - 2) == '\r' && 
+        temp_str.charAt(temp_str_length - 1) == '\n')
     {
       // 提取核心內容：從索引 2 開始，到倒數第3個字元結束
-      MeshtasticMessage = temp_str.substring(2, len - 2);
+      MeshtasticMessageFromID = temp_str.substring(2,5);
+      MeshtasticMessage = temp_str.substring(2, temp_str_length - 2);
       Serial.println(MeshtasticMessage);      
       // 傳送HMI命令，要用write才能處理不可見字元。
-      sprintf(temp_cmd_str,"t0.txt=\"msg->%s\"\xff\xff\xff",MeshtasticMessage.c_str());
+      sprintf(temp_cmd_str,"t0.txt=\"MeshtasticMessage(%d)->%s\"\xff\xff\xff",temp_str_length,MeshtasticMessage.c_str());
       Serial2.write(temp_cmd_str);
     }  
     else 
