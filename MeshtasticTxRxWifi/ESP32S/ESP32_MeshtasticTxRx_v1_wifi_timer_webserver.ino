@@ -149,6 +149,14 @@ void handleRoot() {
   "    </div>" + "\n" + 
   "    <div class=\"esp32-item-container\">"
   "        <div class=\"side-by-side esp32-item-text\">" + "\n" +
+  "            Meshtastic發送者: " + "\n" +
+  "        </div>" + "\n" +  
+  "        <div class=\"side-by-side esp32-item-text\">" + "\n" +
+  "            " + MeshtasticMessageFromID +
+  "        </div>" + "\n" +  
+  "    </div>" + "\n" + 
+  "    <div class=\"esp32-item-container\">"
+  "        <div class=\"side-by-side esp32-item-text\">" + "\n" +
   "            Meshtastic訊息: " + "\n" +
   "        </div>" + "\n" +  
   "        <div class=\"side-by-side esp32-item-text\">" + "\n" +
@@ -184,7 +192,9 @@ void handleInfo() {
   "," +
   "\"Client_IP\":\"" + server.client().remoteIP().toString() + "\"" +  
   "," +
-  "\"MeshtasticMessage\":\"" + MeshtasticMessage + "\"" +  
+  "\"MeshtasticMessageFromID\":\"" + MeshtasticMessageFromID + "\"" +  
+  "," +  
+  "\"MeshtasticMessage\":{" + MeshtasticMessage + "}" +  
   "}";
   
   //--
@@ -236,11 +246,11 @@ void setup() {
   //--
   // 印出歡迎訊息:
   Serial.print("\n");//第一行常有亂碼，先使用換行字元
-  Serial.print("*************************************\n");
-  Serial.print("* 韌體名稱: ESP32_MeshtasticTxRx_v1_wifi_timer_webserver \n"); 
+	Serial.print("*************************************\n");
+	Serial.print("* 韌體名稱: ESP32_MeshtasticTxRx_v1_wifi_timer_webserver \n"); 
   Serial.print(String("") + "* 版本: " + FW_VERSION_str + " \n");
-  Serial.print("* Author: HsiupoYeh \n");
-  Serial.print("*************************************\n");
+	Serial.print("* Author: HsiupoYeh \n");
+	Serial.print("*************************************\n");
   //---------------------------------------------------------------
   //---------------------------------------------------------------
   // 與Meshtastic溝通用的UART1
@@ -440,9 +450,12 @@ void loop() {
   if (Serial1.available() > 0) {
     // 讀取所有可用的資料
     String temp_str = Serial1.readString();
+    Serial.println("Meshtastic的UART接收字串:");
+    Serial.println(temp_str);
     // 計算內容長度
     int temp_str_length = temp_str.length();
     Serial.print("Meshtastic的UART接收字串長度: ");
+    Serial.println(temp_str_length);
     Serial.println(temp_str_length);
 
     // 判斷條件：
@@ -456,14 +469,60 @@ void loop() {
         temp_str.charAt(1) == '\n' &&
         temp_str.charAt(temp_str_length - 2) == '\r' && 
         temp_str.charAt(temp_str_length - 1) == '\n')
-    {
-      // 提取核心內容：從索引 2 開始，到倒數第3個字元結束
-      MeshtasticMessageFromID = temp_str.substring(2,5);
-      MeshtasticMessage = temp_str.substring(2, temp_str_length - 2);
-      Serial.println(MeshtasticMessage);      
-      // 傳送HMI命令，要用write才能處理不可見字元。
-      sprintf(temp_cmd_str,"t0.txt=\"MeshtasticMessage(%d)->%s\"\xff\xff\xff",temp_str_length,MeshtasticMessage.c_str());
-      Serial2.write(temp_cmd_str);
+    {      
+      if (temp_str_length < 65)
+      {
+        // 提取發送者ID：從索引 2 開始，到第6個字元結束
+        MeshtasticMessageFromID = temp_str.substring(2,6);
+        Serial.println("Meshtastic發送者ID:");
+        Serial.println(MeshtasticMessageFromID);
+        Serial.println("Meshtastic發送者ID長度:");
+        Serial.println(MeshtasticMessageFromID.length());
+        // 提取核心內容：從索引 2 開始，到倒數第3個字元結束
+        MeshtasticMessage = "\"text\":\"" + temp_str.substring(8, temp_str_length - 2) + "\"";
+        Serial.println("Meshtastic訊息:");
+        Serial.println(MeshtasticMessage);
+        Serial.println("Meshtastic訊息長度:");
+        Serial.println(MeshtasticMessage.length());
+        // 傳送HMI命令，要用write才能處理不可見字元。
+        sprintf(temp_cmd_str,"t0.txt=\"MeshtasticMessage(%d) From %s\"\xff\xff\xff",temp_str_length,MeshtasticMessageFromID.c_str());
+        Serial2.write(temp_cmd_str);
+      }
+      else
+      {
+        // 提取發送者ID：從索引 2 開始，到第6個字元結束
+        MeshtasticMessageFromID = temp_str.substring(2,6);
+        Serial.println("Meshtastic發送者ID:");
+        Serial.println(MeshtasticMessageFromID);
+        Serial.println("Meshtastic發送者ID長度:");
+        Serial.println(MeshtasticMessageFromID.length());
+        if (temp_str.charAt(8) == '{' &&
+            temp_str.charAt(temp_str_length - 3) == '}')
+        {
+          // 提取核心內容：從索引 8 開始，到倒數第2個字元結束
+          MeshtasticMessage = temp_str.substring(9, temp_str_length - 3);
+          Serial.println("Meshtastic訊息:");
+          Serial.println(MeshtasticMessage);
+          Serial.println("Meshtastic訊息長度:");
+          Serial.println(MeshtasticMessage.length());
+          // 傳送HMI命令，要用write才能處理不可見字元。
+          sprintf(temp_cmd_str,"t0.txt=\"MeshtasticMessage(%d) From %s\"\xff\xff\xff",temp_str_length,MeshtasticMessageFromID.c_str());
+          Serial2.write(temp_cmd_str); 
+        }
+        else
+        {
+          // 提取核心內容：從索引 8 開始，到倒數第2個字元結束
+          MeshtasticMessage = "\"text\":\"" +  temp_str.substring(8, temp_str_length - 2) + "\"";
+          Serial.println("Meshtastic訊息:");
+          Serial.println(MeshtasticMessage);
+          Serial.println("Meshtastic訊息長度:");
+          Serial.println(MeshtasticMessage.length());
+          // 傳送HMI命令，要用write才能處理不可見字元。
+          sprintf(temp_cmd_str,"t0.txt=\"MeshtasticMessage(%d) From %s\"\xff\xff\xff",temp_str_length,MeshtasticMessageFromID.c_str());
+          Serial2.write(temp_cmd_str);
+        }
+        
+      }
     }  
     else 
     {
